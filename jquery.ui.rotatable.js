@@ -45,7 +45,7 @@ $.widget("ui.rotatable", $.ui.mouse, {
 			wheelRotate: $.proxy(this.wheelRotate, this)
         };
 
-		this.element.bind('wheel', this.listeners.wheelRotate);
+		// this.element.bind('wheel', this.listeners.wheelRotate);
 
 		handle.draggable({ helper: 'clone', start: this.dragStart, handle: handle });
         handle.bind('mousedown', this.listeners.startRotate);
@@ -93,6 +93,7 @@ $.widget("ui.rotatable", $.ui.mouse, {
     },
 
     startRotate: function(event) {
+    	this.elementCurrentAngle = 0;
         var center = this.getElementCenter();
         var startXFromCenter = event.pageX - center[0];
         var startYFromCenter = event.pageY - center[1];
